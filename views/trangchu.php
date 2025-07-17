@@ -72,6 +72,22 @@ nav button:hover {
     background-color: #666;
 }
 
+.banner {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 main {
     padding: 20px;
 }
@@ -164,6 +180,7 @@ footer ul {
     <!-- Biểu tượng kính lúp và đăng nhập, giỏ hàng -->
     <div>
         <button>Đăng nhập</button>
+        <button>Đăng ký</button>
     </div>
 
     <!-- Menu điều hướng -->
@@ -174,6 +191,9 @@ footer ul {
         <button>Giới thiệu</button>
         <button>Tin tức</button>
     </nav>
+    <div class="banner">
+        <img src="<?= BASE_UPLOAD . 'banner/banner.jpg' ?>" alt="">
+    </div>
 </header>
 <main>
     <!-- Tiêu đề -->
@@ -182,9 +202,9 @@ footer ul {
         <?php foreach ($ruouvangList as $ruouvang): ?>
             <li>
                 <ul><img src="<?= BASE_UPLOAD . $ruouvang['anh'] ?>" alt="" width=""></ul>
-                <ul><?= $ruouvang['ten']?></ul>
-                <ul><?=$ruouvang['gia'] ?></ul>
-                <ul><?= $ruouvang['soluong'] ?></ul>
+                <ul><a href=""><?= $ruouvang['ten']?></a></ul>
+                <ul><p><?=$ruouvang['gia'] ?> VNĐ</p></ul>
+                <ul><p>Số lượng: <?= $ruouvang['soluong'] ?></p></ul>
                 <ul>
                     <a href="">Thêm</a>
                     <a href="">Sửa</a>
@@ -199,9 +219,9 @@ footer ul {
     <?php foreach ($ruoucacnuocList as $ruoucacnuoc): ?>
         <li>
             <ul><img src="<?= BASE_UPLOAD . $ruoucacnuoc['anh'] ?>" alt="" width=""></ul>
-            <ul><?= $ruoucacnuoc['ten']?></ul>
-            <ul><?=$ruoucacnuoc['gia'] ?></ul>
-            <ul><?= $ruoucacnuoc['soluong'] ?></ul>
+            <ul><a href=""><?= $ruoucacnuoc['ten']?></a></ul>
+            <ul><p><?=$ruoucacnuoc['gia'] ?> VNĐ</p></ul>
+            <ul>Số lượng: <?= $ruoucacnuoc['soluong'] ?></ul>
             <ul>
                 <a href="">Thêm</a>
                 <a href="">Sửa</a>
