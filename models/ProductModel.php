@@ -1,6 +1,6 @@
-<?php
+<?php 
 // Có class chứa các function thực thi tương tác với cơ sở dữ liệu 
-class ProductModel
+class ProductModel 
 {
     public $conn;
     public function __construct()
@@ -8,7 +8,7 @@ class ProductModel
         $this->conn = connectDB();
     }
 
-    // Viết truy vấn danh sách sản phẩm 
+    // Viết truy vấn danh sách rượu vang
     public function getAllRuouvang()
     {
         $sql = "SELECT * FROM ruouvang";
@@ -16,5 +16,14 @@ class ProductModel
         $stmt->execute();
         $ruouvangList = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $ruouvangList;
+    }
+
+    public function getAllRuoucacnuoc()
+    {
+        $sql = "SELECT * FROM ruoucacnuoc";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $ruoucacnuocList = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $ruoucacnuocList;
     }
 }

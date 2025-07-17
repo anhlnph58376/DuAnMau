@@ -3,7 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trang chủ</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+header input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    margin-right: 8px;
+}
+
+header button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+nav {
+    width: 100%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+nav button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #999;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #666;
+}
+
+main {
+    padding: 20px;
+}
+
+h2, h3 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+    position: relative;
+}
+
+h2::before, h2::after,
+h3::before, h3::after {
+    content: '';
+    display: inline-block;
+    width: 80px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+section {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+section li {
+    list-style: none;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+section img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+section ul {
+    margin-bottom: 5px;
+}
+
+section a {
+    margin: 0 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #3498db;
+}
+
+section a:hover {
+    color: #e74c3c;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+    </style>
 </head>
 <body>
     <header>
@@ -35,65 +179,40 @@
     <!-- Tiêu đề -->
     <h2>Rượu Vang</h2>
     <section>
-        <table border="1">
-        <tr>
-            <th>Id</th>
-            <th>Tên rượu</th>
-            <th>Giá</th>
-            <th>Hình ảnh</th>
-            <th>Số lượng</th>
-            <th>Mô tả</th>
-            <th>Action</th>
-        </tr>
         <?php foreach ($ruouvangList as $ruouvang): ?>
-            <tr>
-                <td><?= $ruouvang['id'] ?></td>
-                <td><?= $ruouvang['ten']?></td>
-                <td><?=$ruouvang['gia'] ?></td>
-                <td><img src="<?= $ruouvang['anh'] ?>" alt="" width="50"></td>
-                <td><?= $ruouvang['soluong'] ?></td>
-                <td><?= $ruouvang['chitiet'] ?></td>
-                <td><button>Thêm vào giỏ</button></td>
-            </tr>
+            <li>
+                <ul><img src="<?= BASE_UPLOAD . $ruouvang['anh'] ?>" alt="" width=""></ul>
+                <ul><?= $ruouvang['ten']?></ul>
+                <ul><?=$ruouvang['gia'] ?></ul>
+                <ul><?= $ruouvang['soluong'] ?></ul>
+                <ul>
+                    <a href="">Thêm</a>
+                    <a href="">Sửa</a>
+                    <a href="">Xóa</a>
+                </ul>
+            </li>
         <?php endforeach; ?>
-        </table>
     </section>
-
-    <!-- Tiêu đề phụ -->
-    <h3>Rượu vang bán chạy</h3>
-
-    <!-- Grid sản phẩm bán chạy -->
-    <section>
-    </section>
-
     <!-- Rượu Vang Các Nước -->
     <h3>Rượu Vang Các Nước</h3>
 <section>
+    <?php foreach ($ruoucacnuocList as $ruoucacnuoc): ?>
+        <li>
+            <ul><img src="<?= BASE_UPLOAD . $ruoucacnuoc['anh'] ?>" alt="" width=""></ul>
+            <ul><?= $ruoucacnuoc['ten']?></ul>
+            <ul><?=$ruoucacnuoc['gia'] ?></ul>
+            <ul><?= $ruoucacnuoc['soluong'] ?></ul>
+            <ul>
+                <a href="">Thêm</a>
+                <a href="">Sửa</a>
+                <a href="">Xóa</a>
+                </ul>
+            </li>
+    <?php endforeach; ?>
 </section>
 
 <!-- Rượu Mạnh -->
     <h3>Rượu Mạnh</h3>
-<section>
-</section>
-
-<!-- Rượu mạnh bán chạy -->
-    <h3>Rượu mạnh bán chạy</h3>
-<section>
-    
-</section>
-
-
-    <!-- Nút xem thêm -->
-    <div>
-        <button>Xem thêm sản phẩm</button>
-    </div>
-
-    <!-- Tin tức -->
-    <h3>Tin tức</h3>
-<section>
-</section>
-
-<!-- Dịch vụ -->
 <section>
 </section>
 </main>

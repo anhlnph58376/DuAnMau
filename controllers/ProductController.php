@@ -1,5 +1,5 @@
 <?php
-// có class chứa các function thực thi xử lý logic 
+// có class chứa các function thực thi xử lý logic
 class ProductController
 {
     public $modelProduct;
@@ -12,6 +12,7 @@ class ProductController
     public function Home()
     {
         $ruouvangList = $this->modelProduct->getAllRuouvang();
+        $ruoucacnuocList = $this->modelProduct->getAllRuoucacnuoc();
         require_once './views/trangchu.php';
     }
 }
