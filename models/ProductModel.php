@@ -9,21 +9,8 @@ class ProductModel
     }
 
     // Viết truy vấn danh sách rượu vang
-    public function getAllRuouvang()
+    public function getAllProduct()
     {
-        $sql = "SELECT * FROM ruouvang";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $ruouvangList = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $ruouvangList;
-    }
-
-    public function getAllRuoucacnuoc()
-    {
-        $sql = "SELECT * FROM ruoucacnuoc";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $ruoucacnuocList = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $ruoucacnuocList;
+        
     }
 }

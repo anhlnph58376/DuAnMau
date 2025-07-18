@@ -11,8 +11,6 @@ class ProductController
 
     public function Home()
     {
-        $ruouvangList = $this->modelProduct->getAllRuouvang();
-        $ruoucacnuocList = $this->modelProduct->getAllRuoucacnuoc();
         require_once './views/trangchu.php';
     }
 }
