@@ -19,10 +19,10 @@ class ProductModel
     }
 
     function getDetail($id)  {
-        $sql = "select * from users where id = :id";
+        $sql = "select * from san_pham where id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':id'=>$id]);
-        $userList = $stmt->fetch();
-        return $userList;
+        $detailList = $stmt->fetch();
+        return $detailList;
     }
 }

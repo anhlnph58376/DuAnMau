@@ -69,7 +69,7 @@
                         </div>
                         <br>
                         <div class="product_name">
-                            <a href=""><?= $item['ten'] ?></a>
+                            <a href="<?= BASE_URL . "?act=detail&id=" . $item['id'] ?>"><?= $item['ten'] ?></a>
                             <p><?= $item['gia'] ?> VND</p>
                         </div>
                         <button type="submit">Thêm vào giỏ hàng</button>
