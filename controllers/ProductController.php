@@ -11,6 +11,14 @@ class ProductController
 
     public function Home()
     {
+        $ruouvangList = $this->modelProduct->getAllRuouvang();
         require_once './views/trangchu.php';
+    }
+
+    public function Detail(){
+        if (isset($_GET['id'])) {
+            $detailList = $this->modelProduct->getDetail($_GET['id']);
+            require_once './views/detail.php';
+        }
     }
 }
