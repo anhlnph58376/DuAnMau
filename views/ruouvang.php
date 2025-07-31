@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ cửa hàng rượu Việt</title>
+    <title>Trang Rượu vang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <style>
@@ -60,7 +60,7 @@
     <div class="main">
         <?php require_once "./views/header.php"; ?>
         <div class="container">
-            <h2>Sản phẩm nổi bật</h2>
+            <h2>Rượu vang</h2>
             <div class="product">
                 <?php foreach($ruouvangList as $item){ ?>
                     <div class="product_item">

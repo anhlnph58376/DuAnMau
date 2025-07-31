@@ -21,4 +21,5 @@ match ($act) {
     // Trang chủ
     '/'=>(new ProductController())->Home(),
     'detail'=>(new ProductController())->Detail(),
+    'ruouvang'=>(new ProductController())->RuouVang(),
 };

@@ -21,4 +21,10 @@ class ProductController
             require_once './views/detail.php';
         }
     }
+
+    public function RuouVang()
+    {
+        $ruouvangList = $this->modelProduct->getAllRuouvang();
+        require_once './views/ruouvang.php';
+    }
 }

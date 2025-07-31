@@ -90,7 +90,7 @@
                         </form>
                     </li>
                     <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
-                    <li><a href="#">Rượu vang</a></li>
+                    <li><a href="<?= BASE_URL . "?act=ruouvang" ?>">Rượu vang</a></li>
                     <li><a href="#">Rượu mạnh</a></li>
                     <li><a href="#">Khuyễn mãi</a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
