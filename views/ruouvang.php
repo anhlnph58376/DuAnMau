@@ -43,16 +43,28 @@
             padding: 20px;
         }
         .main .container .product .product_item button{
-            width: 90%;
+            width: 40%;
             padding: 10px;
-            margin: 10px;
+            margin: 10px 5px;
             border-radius: 5px;
             background-color: #605ee0;
             color: #f3f3fd;
             font-size: 16px;
+            cursor: pointer;
         }
         .main .container h2{
             margin: 20px 0;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
         }
     </style>
 </head>
@@ -69,10 +81,16 @@
                         </div>
                         <br>
                         <div class="product_name">
-                            <a href="<?= BASE_URL . "?act=detail&id=" . $item['id'] ?>"><?= $item['ten'] ?></a>
-                            <p><?= $item['gia'] ?> VND</p>
+                            <a href="index.php?url=detail&id=<?= $item['id'] ?>"><?= $item['ten'] ?></a>
+                            <p><?= number_format($item['gia'], 0, ',', '.') ?> VND</p>
                         </div>
-                        <button type="submit">Thêm vào giỏ hàng</button>
+                        <button>Thêm vào giỏ hàng</button>
+                        <form action="index.php?url=add-to-cart" method="post" style="display: inline;">
+                            <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="redirect_to_cart" value="true">
+                            <button type="submit">Mua ngay</button>
+                        </form>
                     </div>
                 <?php } ?>
             </div>

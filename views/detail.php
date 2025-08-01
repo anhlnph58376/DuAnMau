@@ -37,7 +37,14 @@
             <?php else : ?>
                 <p><?= number_format($detailList['gia'], 0, ',', '.') ?> VNĐ</p>
             <?php endif; ?>
-            <button type="submit">Thêm vào giỏ hàng</button>
+            <form action="index.php?url=add-to-cart" method="POST">
+                <input type="hidden" name="product_id" value="<?= $detailList['id'] ?>">
+                <input type="hidden" name="product_name" value="<?= $detailList['ten'] ?>">
+                <input type="hidden" name="product_price" value="<?= isset($gia_moi) ? $gia_moi : $detailList['gia'] ?>">
+                <input type="hidden" name="product_image" value="<?= $detailList['hinh_anh'] ?>">
+                <input type="number" name="quantity" value="1" min="1" style="width: 60px;">
+                <button type="submit">Mua hàng</button>
+            </form>
             <h4>Chi tiết sản phẩm</h4>
             <p>Số lượng trong kho: <?= $detailList['so_luong_kho'] ?></p>
             <p>Nồng độ: <?= $detailList['nong_do_con'] ?>%</p>
@@ -45,7 +52,7 @@
             <p>Loại rượu: <?= $detailList['loai_id'] ?></p>
             <p>Quốc gia: <?= $detailList['quoc_gia_id'] ?></p>
             <p>Thương hiệu: <?= $detailList['hang_id'] ?></p>
-            <p><?= $detailList['mo_ta'] ?></p>
+            <p>Mô tả: <?= $detailList['mo_ta'] ?></p>
         </div>
         <?php require_once "./views/footer.php"; ?>
     </div>

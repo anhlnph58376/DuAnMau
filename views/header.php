@@ -84,22 +84,26 @@
                 <div class="menu">
                     <ul>
                     <li>
-                        <form action="#" class="search">
+                        <form urlion="#" class="search">
                             <input  type="text" name="" id="">
                             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>
                     <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
-                    <li><a href="<?= BASE_URL . "?act=ruouvang" ?>">Rượu vang</a></li>
-                    <li><a href="<?= BASE_URL . "?act=ruoumanh" ?>">Rượu mạnh</a></li>
-                    <li><a href="<?= BASE_URL . "?act=khuyenmai" ?>">Khuyễn mãi</a></li>
-                    <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                    <li><a href="#">Đăng nhập</a></li>
+                    <li><a href="<?= BASE_URL . "?url=ruouvang" ?>">Rượu vang</a></li>
+                    <li><a href="<?= BASE_URL . "?url=ruoumanh" ?>">Rượu mạnh</a></li>
+                    <li><a href="<?= BASE_URL . "?url=khuyenmai" ?>">Khuyễn mãi</a></li>
+                    <li><a href="index.php?url=cart"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>)</a></li>
+                    <?php if (isset($_SESSION['user'])) { ?>
+                        <li><a href="index.php?url=logout">Đăng xuất</a></li>
+                    <?php } else { ?>
+                        <li><a href="index.php?url=login">Đăng nhập</a></li>
+                    <?php } ?>
                 </ul>
                 </div>
             </div>
             <div class="banner">
-                <a href="<?= BASE_URL . "?act=ruouvang" ?>"><img src="<?= BASE_UPLOAD . "banner/banner.jpg" ?>" alt=""></a>
+                <a href="<?= BASE_URL . "?url=ruouvang" ?>"><img src="<?= BASE_UPLOAD . "banner/banner.jpg" ?>" alt=""></a>
             </div>
         </div>
 </body>
