@@ -84,17 +84,12 @@
                             <a href="index.php?url=detail&id=<?= $item['id'] ?>"><?= $item['ten'] ?></a>
                             <p><?= number_format($item['gia'], 0, ',', '.') ?> VND</p>
                         </div>
-                        <form action="index.php?url=more-to-cart" method="post" style="display: inline;">
-                            <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
-                            <input type="hidden" name="quantity" value="1">
-                            <button type="submit">Thêm vào giỏ hàng</button>
-                        </form>
-
                         <form action="index.php?url=add-to-cart" method="post" style="display: inline;">
                             <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
                             <input type="hidden" name="quantity" value="1">
                             <input type="hidden" name="redirect_to_cart" value="true">
-                            <button type="submit">Mua ngay</button>
+                            <button type="submit" name="add_to_cart">Thêm vào giỏ hàng</button>
+                            <button type="submit" name="buy_now">Mua hàng</button>
                         </form>
                     </div>
                 <?php } ?>

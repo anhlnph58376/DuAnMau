@@ -31,7 +31,6 @@ match ($act) {
     // Cart
     'cart' => showCart(),
     'add-to-cart' => addToCart(),
-    'more-to-cart' => moreToCart(),
     'update-cart' => updateCart(),
     'remove-from-cart' => removeFromCart(),
 

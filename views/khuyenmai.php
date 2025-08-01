@@ -88,14 +88,14 @@
                                 $giaSauGiam = $giaGoc * (1 - $giam / 100);
                             ?>
                                 <p><del><?= number_format($giaGoc) ?> VND</del></p>
-                                <p><strong><?= number_format($giaSauGiam) ?> VND</strong> (-<?= $giam ?>%)</p>
+                                <p><strong><?= number_format($giaSauGiam) ?> VND</strong> (-<?= number_format($giam, 0) ?>%)</p>
                         </div>
-                        <button>Thêm vào giỏ hàng</button>
                         <form action="index.php?url=add-to-cart" method="post" style="display: inline;">
                             <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
                             <input type="hidden" name="quantity" value="1">
                             <input type="hidden" name="redirect_to_cart" value="true">
-                            <button type="submit">Mua ngay</button>
+                            <button type="submit" name="add_to_cart">Thêm vào giỏ hàng</button>
+                            <button type="submit" name="buy_now">Mua hàng</button>
                         </form>
                     </div>
                 <?php } ?>

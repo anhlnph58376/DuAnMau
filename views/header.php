@@ -93,7 +93,7 @@
                     <li><a href="<?= BASE_URL . "?url=ruouvang" ?>">Rượu vang</a></li>
                     <li><a href="<?= BASE_URL . "?url=ruoumanh" ?>">Rượu mạnh</a></li>
                     <li><a href="<?= BASE_URL . "?url=khuyenmai" ?>">Khuyễn mãi</a></li>
-                    <li><a href="index.php?url=cart"><i class="fa-solid fa-cart-shopping"></i> (<?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>)</a></li>
+                    <li><a href="index.php?url=cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <li><a href="index.php?url=logout">Đăng xuất</a></li>
                     <?php } else { ?>
