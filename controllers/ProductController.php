@@ -27,4 +27,16 @@ class ProductController
         $ruouvangList = $this->modelProduct->getAllRuouvang();
         require_once './views/ruouvang.php';
     }
+
+    public function KhuyenMai()
+    {
+        $ruouvangList = $this->modelProduct->getAllKhuyenMai();
+        require_once './views/khuyenmai.php';
+    }
+
+    public function RuouManh()
+    {
+        $ruouvangList = $this->modelProduct->getAllRuouvang();
+        require_once './views/ruoumanh.php';
+    }
 }

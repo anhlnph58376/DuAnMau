@@ -22,4 +22,6 @@ match ($act) {
     '/'=>(new ProductController())->Home(),
     'detail'=>(new ProductController())->Detail(),
     'ruouvang'=>(new ProductController())->RuouVang(),
+    'khuyenmai'=>(new ProductController())->KhuyenMai(),
+    'ruoumanh'=>(new ProductController())->RuouManh(),
 };

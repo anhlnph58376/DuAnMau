@@ -91,15 +91,15 @@
                     </li>
                     <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
                     <li><a href="<?= BASE_URL . "?act=ruouvang" ?>">Rượu vang</a></li>
-                    <li><a href="#">Rượu mạnh</a></li>
-                    <li><a href="#">Khuyễn mãi</a></li>
+                    <li><a href="<?= BASE_URL . "?act=ruoumanh" ?>">Rượu mạnh</a></li>
+                    <li><a href="<?= BASE_URL . "?act=khuyenmai" ?>">Khuyễn mãi</a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     <li><a href="#">Đăng nhập</a></li>
                 </ul>
                 </div>
             </div>
             <div class="banner">
-                <img src="<?= BASE_UPLOAD . "banner/banner.jpg" ?>" alt="">
+                <a href="<?= BASE_URL . "?act=ruouvang" ?>"><img src="<?= BASE_UPLOAD . "banner/banner.jpg" ?>" alt=""></a>
             </div>
         </div>
 </body>
