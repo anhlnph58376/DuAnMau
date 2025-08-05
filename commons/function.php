@@ -18,7 +18,7 @@ function connectDB() {
     
         return $conn;
     } catch (PDOException $e) {
-        echo ("Connection failed: " . $e->getMessage());
+        die("Connection failed: " . $e->getMessage());
     }
 }
 

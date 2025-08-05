@@ -100,10 +100,10 @@ if (isset($_SESSION['gio_hang']) && !empty($_SESSION['gio_hang'])) {
         <table class="table">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -129,7 +129,7 @@ if (isset($_SESSION['gio_hang']) && !empty($_SESSION['gio_hang'])) {
                         </td>
                         <td><?= number_format($total_item, 0) ?> VNĐ</td>
                         <td>
-                            <a href="index.php?url=remove-from-cart&product_id=<?= $item['id'] ?>" class="btn-sm">Remove</a>
+                            <a href="index.php?url=remove-from-cart&product_id=<?= $item['id'] ?>" class="btn-sm">Xóa</a>
                         </td>
                     </tr>
                 <?php } ?>

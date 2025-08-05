@@ -10,23 +10,22 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/ProductController.php';
 require_once './controllers/UserController.php';
 require_once './controllers/CartController.php';
+require_once './controllers/AdminController.php';
 
 // Require toàn bộ file Models
 require_once './models/ProductModel.php';
+require_once './models/UserModel.php';
 
 // Route
-$act = $_GET['url'] ?? '/';
+$url = $_GET['url'] ?? '/';
 
-
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
-
-match ($act) {
+match ($url) {
     // Trang chủ
-    '/'=>(new ProductController())->Home(),
-    'detail'=>(new ProductController())->Detail(),
-    'ruouvang'=>(new ProductController())->RuouVang(),
-    'khuyenmai'=>(new ProductController())->KhuyenMai(),
-    'ruoumanh'=>(new ProductController())->RuouManh(),
+    '/' => (new ProductController())->Home(),
+    'detail' => (new ProductController())->Detail(),
+    'ruouvang' => (new ProductController())->RuouVang(),
+    'khuyenmai' => (new ProductController())->KhuyenMai(),
+    'ruoumanh' => (new ProductController())->RuouManh(),
 
     // Cart
     'cart' => showCart(),
@@ -40,4 +39,8 @@ match ($act) {
     'register' => showRegisterForm(),
     'register-handle' => register(),
     'logout' => logout(),
+
+    // Admin
+    'admin' => (new AdminController())->dashboard(),
+    'admin/products' => (new AdminController())->listProducts(),
 };

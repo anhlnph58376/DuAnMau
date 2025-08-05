@@ -16,7 +16,14 @@ class UserModel
         $stmt->execute([':ten_dang_nhap' => $ten_dang_nhap]);
         $user = $stmt->fetch();
 
-        if ($user && $mat_khau == $user['mat_khau']) {
+        if ($user && ($mat_khau == $user['mat_khau'] || password_verify($mat_khau, $user['mat_khau']))) {
+            // Nếu người dùng đăng nhập bằng mật khẩu văn bản gốc, hãy cập nhật nó thành mật khẩu băm
+            if ($mat_khau == $user['mat_khau']) {
+                $hashedPassword = password_hash($mat_khau, PASSWORD_DEFAULT);
+                $updateSql = "UPDATE nguoi_dung SET mat_khau = :mat_khau WHERE id = :id";
+                $updateStmt = $this->conn->prepare($updateSql);
+                $updateStmt->execute([':mat_khau' => $hashedPassword, ':id' => $user['id']]);
+            }
             return $user;
         }
 

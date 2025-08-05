@@ -72,7 +72,7 @@
         <?php if (isset($error)): ?>
             <div class="alert"><?php echo $error; ?></div>
         <?php endif; ?>
-        <form action="index.php?url=login" method="post">
+        <form action="index.php?url=login-handle" method="post">
             <div class="form-group">
                 <label for="ten_dang_nhap">Usename:</label>
                 <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" required>

@@ -11,7 +11,7 @@ class ProductController
 
     public function Home()
     {
-        $ruouvangList = $this->modelProduct->getAllRuouvang();
+        $ruouvangList = $this->modelProduct->getAllProduct();
         require_once './views/trangchu.php';
     }
 
@@ -24,7 +24,7 @@ class ProductController
 
     public function RuouVang()
     {
-        $ruouvangList = $this->modelProduct->getAllRuouvang();
+        $ruouvangList = $this->modelProduct->getAllProduct();
         require_once './views/ruouvang.php';
     }
 
@@ -36,7 +36,7 @@ class ProductController
 
     public function RuouManh()
     {
-        $ruouvangList = $this->modelProduct->getAllRuouvang();
+        $ruouvangList = $this->modelProduct->getAllProduct();
         require_once './views/ruoumanh.php';
     }
 }

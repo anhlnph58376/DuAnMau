@@ -22,7 +22,11 @@ function login() {
 
         if ($user) {
             $_SESSION['user'] = $user;
-            header('Location: index.php');
+            if ($user['vai_tro'] == 'admin') {
+                header('Location: ' . BASE_URL . '?url=admin/products');
+            } else {
+                header('Location: ' . BASE_URL);
+            }
         } else {
             // Đăng nhập thất bại, hiển thị thông báo lỗi
             $error = "Tên đăng nhập hoặc mật khẩu không đúng.";
@@ -35,7 +39,7 @@ function register() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ten_dang_nhap = $_POST['ten_dang_nhap'];
         $mat_khau = $_POST['mat_khau'];
-        $confirm_password = $_POST['confirm_password'];
+        $confirm_password = $_POST['mat_khau'];
 
         if ($mat_khau !== $confirm_password) {
             $error = "Mật khẩu không khớp.";
