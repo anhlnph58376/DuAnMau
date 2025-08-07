@@ -43,4 +43,9 @@ match ($url) {
     // Admin
     'admin' => (new AdminController())->dashboard(),
     'admin/products' => (new AdminController())->listProducts(),
+    'admin/products/create' => (new AdminController())->showAddProductForm(),
+    'admin/products/store' => (new AdminController())->addProduct(),
+    'admin/products/edit' => (new AdminController())->showEditProductForm($_GET['id'] ?? null),
+    'admin/products/update' => (new AdminController())->updateProduct($_GET['id'] ?? null),
+    'admin/products/delete' => (new AdminController())->deleteProduct($_GET['id'] ?? null),
 };
