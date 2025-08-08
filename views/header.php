@@ -84,8 +84,9 @@
                 <div class="menu">
                     <ul>
                     <li>
-                        <form urlion="#" class="search">
-                            <input  type="text" name="" id="">
+                        <form action="" method="get" class="search">
+                            <input type="hidden" name="url" value="search">
+                            <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm..." value="<?= htmlspecialchars($_GET['keyword'] ?? '') ?>">
                             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>

@@ -6,6 +6,11 @@ function showCart() {
 }
 
 function addToCart() {
+    if (!isset($_SESSION['user'])) {
+        header('Location: ?url=login');
+        exit();
+    }
+    
     if (!isset($_SESSION['gio_hang'])) {
         $_SESSION['gio_hang'] = [];
     }

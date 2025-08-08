@@ -80,6 +80,36 @@
         .product-info {
             grid-column: 2 / 3;
         }
+        .comments {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .comment-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comment {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .comment p {
+            margin: 5px 0;
+        }
+        .comment strong {
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +155,33 @@
                 <p>Quốc gia: <?= $detailList['quoc_gia_id'] ?></p>
                 <p>Thương hiệu: <?= $detailList['hang_id'] ?></p>
                 <p>Mô tả: <?= $detailList['mo_ta'] ?></p>
+            </div>
+
+            <div class="comments">
+                <h4>Bình luận</h4>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <form action="?url=add-comment" method="POST" class="comment-form">
+                        <input type="hidden" name="san_pham_id" value="<?= $detailList['id'] ?>">
+                        <textarea name="noi_dung" placeholder="Viết bình luận của bạn..." required></textarea>
+                        <button type="submit">Gửi bình luận</button>
+                    </form>
+                <?php else: ?>
+                    <p>Vui lòng <a href="?url=login">đăng nhập</a> để bình luận.</p>
+                <?php endif; ?>
+
+                <div class="comment-list">
+                    <?php if (!empty($comments)): ?>
+                        <?php foreach ($comments as $comment): ?>
+                            <div class="comment">
+                                <p><strong><?= $comment['ten_dang_nhap'] ?>:</strong></p>
+                                <p><?= $comment['noi_dung'] ?></p>
+                                <p><small><?= date('d/m/Y H:i', strtotime($comment['ngay_binh_luan'])) ?></small></p>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Chưa có bình luận nào.</p>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
         <?php require_once "./views/footer.php"; ?>

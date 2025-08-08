@@ -162,4 +162,12 @@ class ProductModel
         $stmt->execute([':today' => $today]);
         return $stmt->fetchAll();
     }
+
+    public function searchProducts($keyword)
+    {
+        $sql = "SELECT * FROM san_pham WHERE ten LIKE :keyword";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':keyword' => '%' . $keyword . '%']);
+        return $stmt->fetchAll();
+    }
 }

@@ -144,6 +144,7 @@ if (isset($_SESSION['gio_hang']) && !empty($_SESSION['gio_hang'])) {
         <div class="text-right">
             <a href="index.php?url=checkout" class="btn-success">Thanh toán</a>
         </div>
+        <a href="index.php" class="btn-primary">Tiếp tục mua sắm</a>
     </div>
 <?php
 } else {
