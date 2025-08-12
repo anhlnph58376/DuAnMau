@@ -15,11 +15,13 @@ class ProductController
     public function Home()
     {
         $keyword = $_GET['keyword'] ?? null;
+        $searchResults = [];
+        
         if ($keyword) {
-            $ruouvangList = $this->modelProduct->searchProducts($keyword);
-        } else {
-            $ruouvangList = $this->modelProduct->getAllProduct();
+            $searchResults = $this->modelProduct->searchProducts($keyword);
         }
+        
+        $ruouvangList = $this->modelProduct->getAllProduct();
         require_once './views/trangchu.php';
     }
 
@@ -60,7 +62,7 @@ class ProductController
         if ($keyword) {
             $ruouvangList = $this->modelProduct->searchProducts($keyword);
         } else {
-            $ruouvangList = $this->modelProduct->getAllProduct();
+            $ruouvangList = $this->modelProduct->getRuouManhHighAlcohol();
         }
         require_once './views/ruoumanh.php';
     }
@@ -83,7 +85,13 @@ class ProductController
     public function search()
     {
         $keyword = $_GET['keyword'] ?? null;
-        $results = $this->modelProduct->searchProducts($keyword);
-        require_once './views/search.php';
+        $searchResults = [];
+        
+        if ($keyword) {
+            $searchResults = $this->modelProduct->searchProducts($keyword);
+        }
+        
+        $ruouvangList = $this->modelProduct->getAllProduct();
+        require_once './views/trangchu.php';
     }
 }

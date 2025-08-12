@@ -56,6 +56,30 @@ match ($route) {
     'admin/products/update' => (new AdminController())->updateProduct($id),
     'admin/products/delete' => (new AdminController())->deleteProduct($id),
 
+    // Admin loai ruou
+    'admin/loai-ruou' => (new AdminController())->listLoaiRuou(),
+    'admin/loai-ruou/create' => (new AdminController())->showAddLoaiRuouForm(),
+    'admin/loai-ruou/store' => (new AdminController())->addLoaiRuou(),
+    'admin/loai-ruou/edit' => (new AdminController())->showEditLoaiRuouForm($id),
+    'admin/loai-ruou/update' => (new AdminController())->updateLoaiRuou($id),
+    'admin/loai-ruou/delete' => (new AdminController())->deleteLoaiRuou($id),
+
+    // Admin Hang Ruou
+    'admin/hang-ruou' => (new AdminController())->listHangRuou(),
+    'admin/hang-ruou/create' => (new AdminController())->showAddHangRuouForm(),
+    'admin/hang-ruou/store' => (new AdminController())->addHangRuou(),
+    'admin/hang-ruou/edit' => (new AdminController())->showEditHangRuouForm($id),
+    'admin/hang-ruou/update' => (new AdminController())->updateHangRuou($id),
+    'admin/hang-ruou/delete' => (new AdminController())->deleteHangRuou($id),
+
+    // Admin Quoc Gia
+    'admin/quoc-gia' => (new AdminController())->listQuocGia(),
+    'admin/quoc-gia/create' => (new AdminController())->showAddQuocGiaForm(),
+    'admin/quoc-gia/store' => (new AdminController())->addQuocGia(),
+    'admin/quoc-gia/edit' => (new AdminController())->showEditQuocGiaForm($id),
+    'admin/quoc-gia/update' => (new AdminController())->updateQuocGia($id),
+    'admin/quoc-gia/delete' => (new AdminController())->deleteQuocGia($id),
+
     // Admin Users
     'admin/users' => (new AdminController())->listUsers(),
     'admin/users/create' => (new AdminController())->showAddUserForm(),
@@ -67,4 +91,21 @@ match ($route) {
     // Admin Comments
     'admin/comments' => (new AdminController())->listComments(),
     'admin/comments/delete' => (new AdminController())->deleteComment($id),
+
+    // Admin Khuyen Mai
+    'admin/khuyen-mai' => (new AdminController())->listKhuyenMai(),
+    'admin/khuyen-mai/create' => (new AdminController())->showAddKhuyenMaiForm(),
+    'admin/khuyen-mai/store' => (new AdminController())->addKhuyenMai(),
+    'admin/khuyen-mai/edit' => (new AdminController())->showEditKhuyenMaiForm($id),
+    'admin/khuyen-mai/update' => (new AdminController())->updateKhuyenMai($id),
+    'admin/khuyen-mai/delete' => (new AdminController())->deleteKhuyenMai($id),
+    'admin/khuyen-mai/manage-products' => (new AdminController())->manageKhuyenMaiProducts($id),
+    'admin/khuyen-mai/add-product' => (new AdminController())->addProductToKhuyenMai(),
+    'admin/khuyen-mai/remove-product' => (new AdminController())->removeProductFromKhuyenMai(),
+
+    // Admin Statistics
+    'admin/statistics' => (new AdminController())->showStatistics(),
+
+    // Admin Advanced Search
+    'admin/advanced-search' => (new AdminController())->advancedSearch(),
 };

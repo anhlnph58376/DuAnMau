@@ -72,9 +72,22 @@
     <div class="main">
         <?php require_once "./views/header.php"; ?>
         <div class="container">
-            <h2>Sản phẩm nổi bật</h2>
+            <?php if (isset($_GET['keyword']) && !empty($_GET['keyword'])): ?>
+                <h2>Kết quả tìm kiếm cho: "<?= htmlspecialchars($_GET['keyword']) ?>"</h2>
+                <?php if (!empty($searchResults)): ?>
+                    <p style="color: #666; margin-bottom: 20px;">Tìm thấy <?= count($searchResults) ?> sản phẩm</p>
+                <?php else: ?>
+                    <p style="color: #666; margin-bottom: 20px;">Không tìm thấy sản phẩm nào</p>
+                <?php endif; ?>
+            <?php else: ?>
+                <h2>Sản phẩm nổi bật</h2>
+            <?php endif; ?>
+
             <div class="product">
-                <?php foreach($ruouvangList as $item){ ?>
+                <?php 
+                // Hiển thị kết quả tìm kiếm hoặc sản phẩm nổi bật
+                $displayProducts = isset($searchResults) && !empty($searchResults) ? $searchResults : array_slice($ruouvangList, 0, 8);
+                foreach($displayProducts as $item){ ?>
                     <div class="product_item">
                         <div class="product_img">
                             <img src="<?= BASE_UPLOAD . $item['hinh_anh'] ?>" alt="">
@@ -93,6 +106,17 @@
                         </form>
                     </div>
                 <?php } ?>
+                
+                <?php if (isset($_GET['keyword']) && !empty($_GET['keyword']) && empty($searchResults)): ?>
+                    <div style="width: 100%; text-align: center; padding: 50px;">
+                        <i class="fas fa-search fa-3x" style="color: #ccc; margin-bottom: 20px;"></i>
+                        <h3 style="color: #666;">Không tìm thấy sản phẩm nào</h3>
+                        <p style="color: #999;">Vui lòng thử lại với từ khóa khác</p>
+                        <a href="index.php" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #605ee0; color: white; text-decoration: none; border-radius: 5px;">
+                            Xem tất cả sản phẩm
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
         <?php require_once "./views/footer.php"; ?>

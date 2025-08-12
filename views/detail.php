@@ -151,9 +151,9 @@
                 <p>Số lượng trong kho: <?= $detailList['so_luong_kho'] ?></p>
                 <p>Nồng độ: <?= $detailList['nong_do_con'] ?>%</p>
                 <p>Sản xuất năm: <?= $detailList['nam_san_xuat'] ?></p>
-                <p>Loại rượu: <?= $detailList['loai_id'] ?></p>
-                <p>Quốc gia: <?= $detailList['quoc_gia_id'] ?></p>
-                <p>Thương hiệu: <?= $detailList['hang_id'] ?></p>
+                <p>Loại rượu: <?= $detailList['ten_loai'] ?></p>
+                <p>Quốc gia: <?= $detailList['ten_quoc_gia'] ?></p>
+                <p>Thương hiệu: <?= $detailList['ten_hang'] ?></p>
                 <p>Mô tả: <?= $detailList['mo_ta'] ?></p>
             </div>
 

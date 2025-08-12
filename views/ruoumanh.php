@@ -72,7 +72,7 @@
     <div class="main">
         <?php require_once "./views/header.php"; ?>
         <div class="container">
-            <h2>Rượu mạnh</h2>
+            <h2>Rượu mạnh (Nồng độ cồn trên 12%)</h2>
             <div class="product">
                 <?php foreach($ruouvangList as $item){ ?>
                     <div class="product_item">
@@ -83,6 +83,7 @@
                         <div class="product_name">
                             <a href="index.php?url=detail&id=<?= $item['id'] ?>"><?= $item['ten'] ?></a>
                             <p><?= number_format($item['gia'], 0, ',', '.') ?> VND</p>
+                            <p><strong>Nồng độ cồn: <?= $item['nong_do_con'] ?>%</strong></p>
                         </div>
                         <form action="index.php?url=add-to-cart" method="post" style="display: inline;">
                             <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
