@@ -11,7 +11,6 @@
             <th>Số điện thoại</th>
             <th>Địa chỉ</th>
             <th>Vai trò</th>
-            <th>Hành động</th>
         </tr>
     </thead>
     <tbody>
@@ -23,10 +22,6 @@
             <td><?= $user['sdt'] ?></td>
             <td><?= $user['dia_chi'] ?></td>
             <td><?= $user['vai_tro'] ?></td>
-            <td>
-                <a href="?url=admin/users/edit/<?= $user['id'] ?>" class="btn">Sửa</a>
-                <a href="?url=admin/users/delete/<?= $user['id'] ?>" class="btn" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?')">Xóa</a>
-            </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
